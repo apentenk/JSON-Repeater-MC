@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Lab: APIs</title>
+    <link href="https://fonts.cdnfonts.com/css/minecraft-3" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="scripts/stored.js"></script>
+    <script src="scripts/script.js"></script>
+</head>
+
+<body>
+    <main>
+        <div id="header">
+            <h1>JSON Repeater MC</h1>
+        </div>
+        <div id="content">
+            <section id="create">
+                <div class="instructions">
+                    <p>JSON Repeater MC is a tool that allows you to quickly replace multiple marked keywords in
+                        text
+                        files at the same time. Perfect for use in editing multiple similar JSON files when modding
+                        minecraft. You can choose from the saved templates below, to generate multiple related
+                        files.
+                        Alternatively you can upload a JSON file direct or type directly into the text box. </p>
+                    <p class="hint">HINTS</p>
+                    <p>Keywords are marked by enclosing them in /**/ like /*so*/</p>
+                    <p>If you try to replace a keyword with /**/ it will simply remove the delimiters</p>
+                    <p>You can double click the file buttons to download directly</p>
+                </div>
+                <div class="sectionTitle">
+                    <h3>Choose Template:</h3>
+                </div>
+                <div class="savedTemplates thirds">
+                    <div>
+                        <h4>Recipes</h4>
+                        <button class="saved" data-templates="tools">Tools and Armor</button>
+                        <button class="saved" data-templates="wood">Wood Family</button>
+                    </div>
+                    <div>
+                        <h4>Item Models</h4>
+                        <button class="saved" data-templates="bow">Bow Models</button>
+                        <button class="saved" data-templates="cross">Crossbow Models</button>
+                    </div>
+                    <div>
+                        <h4>Block Models</h4>
+                        <button class="saved" data-templates="cube_all">Cube All</button>
+                        <button class="saved" data-templates="cube_column">Cube Column</button>
+                    </div>
+                </div>
+                <div class="sectionTitle">
+                    <h3>Create Template<span id="error"> Error: Cannot find any escaped values</span></h3>
+                    <h3 id="valuesTitle">Enter new values</h3>
+                </div>
+                <div class="savedTemplates halves">
+                    <div class="templatePreview">
+                        <textarea id="templateText"></textarea>
+                        <div class="navButton">
+                            <label for="templateFile" id="uploadButton">Upload JSON</label>
+                            <input type="file" id="templateFile" name="template" onchange="uploadTemplate()">
+                            <button class="nav" id="parse">Parse JSON</button>
+                        </div>
+                    </div>
+                    <div id="templateInput">
+                        <div id="jsonInput">
+                        </div>
+                        <div class="navButton">
+                            <button id="createJson" class="nav">Create JSON</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="edit">
+                <div class="sectionTitle">
+                    <h3>Edit and Download:</h3>
+                    <h3 id="previewLabel"></h3>
+                </div>
+                <div class="savedTemplates halves">
+                    <div>
+                        <div id="jsonFiles">
+
+                        </div>
+                    </div>
+                    <div class="templatePreview">
+                        <textarea id="previewText"></textarea>
+                        <div class="navButton">
+                            <button id="download" type="button">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="footer">
+            <h4>Copyright © 2024 Kwasi Apenteng</h4>
+        </div>
+    </main>
+</body>
+
+</html>
